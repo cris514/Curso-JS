@@ -1,0 +1,14 @@
+{
+  "name": "c",
+  "version": "0.1.0",
+  "description": "Creacion de Red Social Escolar",
+  "main": "server.js",
+  "scripts": {},
+  "keywords": [
+    "instagram"
+  ],
+  "author": "cris",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
