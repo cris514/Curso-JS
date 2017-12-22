@@ -1,33 +1,23 @@
+//getElementById Metodo del documento que trae un elemento atravez del ID
+//input texto_lineas.
+var texto = document.getElementById('texto_lineas');
+//Ejecucion del boton.
+var boton = document.getElementById('botoncito');
+//ejecucion de funcion dibujoPorClick, al dar click al boton.
+boton.addEventListener("click", dibujoPorClick);
 
-//getElementById Metodo del documento que trae un elemento atravez del ID.
+
+
 var d = document.getElementById('dibujito')
+//ancho del canvas.
+var ancho = d.width;
+
 // getContext Metodo del canvas.
+//Elegimos dibujar en 2D.
 var lienzo = d.getContext("2d");
 
-var lineas = 30;
-
-var l = 0;
-//yinicial, xfinal
-var yi, xf;
-var colores = "#ec407a";
-//Ejecuta mientras la condicion sea igual.
-for(l = 0; l < lineas; l++){
-yi =10 * l;
-xf = 10 * (l + 1);
-dibujarLinea(colores, 0, yi, xf, 300);
-console.log("linea" + l);
-
-}
-dibujarLinea(colores,1 ,1 ,1 ,299);
-dibujarLinea(colores,1 ,300 ,299 ,299);
-
-dibujarLinea(colores,1 ,1 ,299 ,0);
-dibujarLinea(colores,300 ,0 ,299 ,299);
 
 
-
-
-dibujarLinea(colores,1 ,300 ,299 ,299);
 function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal) {
   lienzo.beginPath();
   lienzo.strokeStyle = color;
@@ -35,6 +25,35 @@ function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal) {
   lienzo.lineTo( xfinal , yfinal);
   lienzo.stroke();
   lienzo.closePath();
+}
+
+//Funcion del input.
+function dibujoPorClick(){
+  //Obtener valor del formulario value.
+var lineas = parseInt(texto.value);
+var l = 0;
+//yinicial, xfinal
+var yi, xf;
+var colores = "#ec407a";
+var espacio = ancho / lineas;
+//Ejecuta mientras la condicion sea igual.
+for(l = 0; l < lineas; l++){
+
+yi = espacio * l;
+
+xf = espacio * (l + 1);
+
+dibujarLinea(colores, 0, yi, xf, 300);
+console.log("linea" + l);
+
+}
+dibujarLinea(colores,1 ,1 ,1 ,ancho -1);
+dibujarLinea(colores,1 ,ancho , ancho -1 ,ancho -1);
+
+dibujarLinea(colores,1 ,1 ,ancho -1 ,0);
+dibujarLinea(colores,300 ,0 ,ancho -1 ,ancho -1);
+
+
 }
 
 /*
