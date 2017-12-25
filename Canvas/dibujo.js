@@ -1,4 +1,4 @@
-//getElementById Metodo del documento que trae un elemento atravez del ID
+ //getElementById Metodo del documento que trae un elemento atravez del ID
 //input texto_lineas.
 var texto = document.getElementById('texto_lineas');
 //Ejecucion del boton.
