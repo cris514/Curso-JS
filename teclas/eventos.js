@@ -15,10 +15,13 @@ document.addEventListener("keyup", dibujarTeclado);
 var cuadrito = document.getElementById('area_de_dibujo');
 var papel = cuadrito.getContext("2d");
 
+var x = 150;
+var y = 150;
+
 dibujarLinea("red", 100, 100, 200, 200, papel);
 
 
-function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal, lienzo) {
+function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal, lienzo){
   lienzo.beginPath();
   lienzo.strokeStyle = color;
   lienzo.lineWidth = 3;//grosor de la linea
@@ -32,25 +35,30 @@ function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal, lienzo) {
 //keyCode de la Flecha a la izquierda 37
 //keyCode de la Flecha a la derecha 39
 function dibujarTeclado(evento) {
-
+var colorcito = "blue";
+var movimiento = 10;
   switch (evento.keyCode) {
     case teclas.UP:
-    console.log("ARRIBA!");
+  dibujarLinea(colorcito, x, y, x, y -movimiento, papel);
+  y = y -movimiento;
       break;
   }
 switch (evento.keyCode) {
   case teclas.DOWN:
-  console.log("ABAJO!");
+  dibujarLinea(colorcito, x, y, x, y + movimiento, papel);
+  y = y + movimiento;
     break;
 }
 switch (evento.keyCode) {
   case teclas.LEFT:
-  console.log("IZQUIERDA!");
+  dibujarLinea(colorcito, x, y, x -movimiento, y, papel);
+  x = x -movimiento;
     break;
 }
 switch (evento.keyCode) {
   case teclas.RIGTH:
-  console.log("DERECHA!");
+  dibujarLinea(colorcito, x, y, x +movimiento, y, papel);
+  x = x +movimiento;
     break;
     console.log("Tecla no habilitada!!");
     default:
